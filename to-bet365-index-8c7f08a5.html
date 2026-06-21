@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bet365 – 主题内容导览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f5f9fc;
+            color: #1e2b3c;
+            line-height: 1.5;
+            padding: 0 16px;
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 32px 0 48px;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            text-align: center;
+            padding: 48px 24px 36px;
+            background: linear-gradient(145deg, #e6f2f5 0%, #d1e4ea 100%);
+            border-radius: 36px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 24px rgba(0, 80, 100, 0.06);
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #0f3b4a;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 span {
+            color: #1b7f8c;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 540px;
+            margin: 0 auto 28px;
+            color: #2c4a58;
+            font-weight: 350;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: #1b7f8c;
+            color: white;
+            font-weight: 500;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(27, 127, 140, 0.25);
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .hero-cta:hover {
+            background: #146d79;
+            transform: scale(1.02);
+        }
+
+        /* Section 通用 */
+        section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 550;
+            color: #0a2e3a;
+            margin-bottom: 18px;
+            border-left: 6px solid #1b7f8c;
+            padding-left: 16px;
+        }
+
+        /* 网格卡片（优势 & 说明） */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 24px 22px;
+            box-shadow: 0 4px 18px rgba(0, 40, 60, 0.04);
+            border: 1px solid #e1edf2;
+            transition: transform 0.15s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(0, 70, 90, 0.08);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #0e4050;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card h3::before {
+            content: "●";
+            color: #1b7f8c;
+            font-size: 1.4rem;
+        }
+
+        .card p {
+            font-size: 0.98rem;
+            color: #2d4d5c;
+            line-height: 1.55;
+        }
+
+        /* 说明区——更自由的版式 */
+        .explain-content {
+            background: #f1f8fb;
+            border-radius: 24px;
+            padding: 28px 24px;
+            border-left: 6px solid #1b7f8c;
+        }
+
+        .explain-content p {
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+
+        .explain-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .explain-content a {
+            color: #1b7f8c;
+            font-weight: 500;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .explain-content a:hover {
+            color: #0b5460;
+        }
+
+        /* FAQ 摘要 */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 18px;
+            padding: 18px 20px;
+            border: 1px solid #d8e7ed;
+            transition: background 0.15s;
+        }
+
+        .faq-item:hover {
+            background: #ecf5f8;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #0c3947;
+            margin-bottom: 6px;
+            font-size: 1.05rem;
+        }
+
+        .faq-a {
+            color: #2b5060;
+            font-size: 0.96rem;
+        }
+
+        .faq-a a {
+            color: #1b7f8c;
+            font-weight: 500;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            text-align: center;
+            padding: 28px 0 12px;
+            border-top: 1px solid #d1e1e8;
+            margin-top: 24px;
+        }
+
+        .footer-links p {
+            font-size: 0.95rem;
+            color: #406573;
+        }
+
+        .footer-links a {
+            color: #1b7f8c;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px dotted #8ebbc8;
+        }
+
+        .footer-links a:hover {
+            color: #0f5766;
+            border-bottom-color: #1b7f8c;
+        }
+
+        /* 响应式 */
+        @media (min-width: 600px) {
+            .grid-cards {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .grid-cards {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            .container {
+                padding: 48px 0 60px;
+            }
+
+            .hero {
+                padding: 60px 32px 44px;
+            }
+
+            .explain-content {
+                padding: 36px 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.35rem;
+            }
+            .card {
+                padding: 20px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero -->
+        <div class="hero">
+            <h1>关于 <span>bet365</span> 的核心脉络</h1>
+            <p>从一个关键词出发，理解其背后涵盖的主题生态、用户场景与信息边界。</p>
+            <a href="https://to-bet365.com" class="hero-cta">bet365</a>
+        </div>
+
+        <!-- 优势区：网格卡片 -->
+        <section>
+            <h2 class="section-title">三个关键维度</h2>
+            <div class="grid-cards">
+                <div class="card">
+                    <h3>内容广度</h3>
+                    <p>围绕 <a href="https://to-bet365.com" style="color:#1b7f8c; font-weight:500; text-decoration:underline;">bet365</a> 延伸出的资讯、规则说明及动态，涵盖不同区域与项目，形成多层次信息网络。</p>
+                </div>
+                <div class="card">
+                    <h3>场景适配</h3>
+                    <p>无论是移动端快速查阅，还是桌面端深度浏览，页面结构均针对常见设备进行响应式优化，减少浏览负担。</p>
+                </div>
+                <div class="card">
+                    <h3>信息透明</h3>
+                    <p>所有描述均基于真实可查的功能与条款，不夸大、不误导，帮助用户获得客观参考。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 说明区：自然段落 + 嵌入链接 -->
+        <section>
+            <h2 class="section-title">主题背景与定位说明</h2>
+            <div class="explain-content">
+                <p>
+                    提到 <a href="https://to-bet365.com">bet365</a>，许多用户首先联想到的是其多元化的服务界面与全球化的运营体系。从早期单一平台逐步发展，如今已整合了赛事数据、实时资讯、账户管理等多种模块，成为许多人日常获取信息与参与互动的入口之一。
+                </p>
+                <p>
+                    本页面旨在以清晰、克制的语言梳理其核心功能与使用场景，不渲染情绪，不虚构收益。每一处描述均参考公开资料与常见用户反馈，力求呈现一个平衡、真实的轮廓。如果你希望进一步查看具体内容或最新动态，可以直接访问 <a href="https://to-bet365.com">bet365</a> 进行了解。
+                </p>
+                <p>
+                    同时，我们也注意到不同地区对相关内容的定义与监管存在差异，建议每位用户根据自身所在地区的法律法规，做出适合自己的选择。保持信息对称、理性判断，是使用任何服务前的重要前提。
+                </p>
+            </div>
+        </section>
+
+        <!-- FAQ 摘要 -->
+        <section>
+            <h2 class="section-title">常见疑问摘要</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-q">是否需要注册才能浏览？</div>
+                    <div class="faq-a">大部分基础介绍与规则说明可直接查看，部分个性化功能需创建账户。详情见 <a href="https://to-bet365.com">bet365</a> 帮助中心。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">支持哪些语言与币种？</div>
+                    <div class="faq-a">平台提供多种语言界面及主流币种选择，具体列表可在设置页面中查看切换。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">如何获取最新功能更新？</div>
+                    <div class="faq-a">官方通常会通过公告栏或消息中心推送更新，你也可以定期浏览 <a href="https://to-bet365.com">bet365</a> 新闻板块。</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 底部链接 -->
+        <div class="footer-links">
+            <p>更多信息请直接访问 <a href="https://to-bet365.com">bet365</a> · 内容定期复核，力求准确</p>
+            <p style="margin-top:8px; font-size:0.85rem; color:#5f7d8a;">基于公开资料整理，仅供信息参考。</p>
+        </div>
+    </div>
+</body>
+</html>
