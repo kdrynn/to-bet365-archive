@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MK体育 · 简明指南与访问提醒</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f2f2f2;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #1d2a3a;
+    }
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    /* hero 横幅 */
+    .hero {
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.03), 0 2px 4px rgba(0,0,0,0.04);
+      padding: 3.2rem 2.5rem;
+      margin-bottom: 2.8rem;
+      border: 1px solid #eaeef2;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(36, 123, 160, 0.03) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 540;
+      letter-spacing: -0.02em;
+      color: #0b1b2b;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: #eef3f7;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      color: #2f5b72;
+      border: 1px solid #dbe3ea;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.02em;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #2b3f51;
+      max-width: 70%;
+      border-left: 3px solid #8baec2;
+      padding-left: 1.2rem;
+    }
+
+    /* 背景说明卡片 */
+    .context-card {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      padding: 1.8rem 2rem;
+      margin-bottom: 2.4rem;
+      border: 1px solid #e2eaef;
+    }
+    .context-card h2 {
+      font-size: 1.5rem;
+      font-weight: 480;
+      margin-bottom: 0.75rem;
+      color: #1a3143;
+    }
+    .context-card p {
+      margin-bottom: 0.75rem;
+      color: #2b4055;
+    }
+    .context-card p:last-child { margin-bottom: 0; }
+
+    /* 三段卡片网格 */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.8rem;
+      margin: 2.4rem 0;
+    }
+    .feature-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.8rem 1.5rem;
+      border: 1px solid #e5edf2;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      transition: box-shadow 0.2s, transform 0.1s;
+    }
+    .feature-card:hover {
+      box-shadow: 0 6px 14px rgba(0,0,0,0.04);
+      transform: translateY(-2px);
+    }
+    .feature-card .num {
+      font-size: 1.8rem;
+      font-weight: 350;
+      color: #9bb6c8;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .feature-card h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: #132b3b;
+    }
+    .feature-card p {
+      font-size: 0.95rem;
+      color: #2f485b;
+    }
+
+    /* 场景 + 提示 混合区 */
+    .insight-area {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2rem;
+      margin: 2.2rem 0;
+      border: 1px solid #e3ebf0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .insight-area .col {
+      flex: 1 1 200px;
+    }
+    .insight-area h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+      color: #1b3447;
+    }
+    .insight-area ul {
+      list-style: none;
+      padding: 0;
+    }
+    .insight-area li {
+      position: relative;
+      padding-left: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #2f4b60;
+      font-size: 0.95rem;
+    }
+    .insight-area li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      font-weight: 600;
+      color: #6f95ad;
+    }
+
+    /* FAQ 摘要 */
+    .faq-mini {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 2rem;
+      margin: 2rem 0 2.5rem;
+      border: 1px solid #e2eaf0;
+    }
+    .faq-mini h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: #152f42;
+    }
+    .faq-mini details {
+      border-bottom: 1px solid #e6edf3;
+      padding: 0.7rem 0;
+    }
+    .faq-mini details:last-of-type { border-bottom: none; }
+    .faq-mini summary {
+      font-weight: 480;
+      cursor: pointer;
+      color: #1f3d52;
+      font-size: 0.98rem;
+      padding: 0.1rem 0;
+    }
+    .faq-mini summary::marker { color: #7fa3b9; }
+    .faq-mini details p {
+      margin: 0.6rem 0 0.2rem 0.8rem;
+      color: #314f65;
+      font-size: 0.92rem;
+    }
+
+    /* 页尾访问提示 */
+    .footer-note {
+      background: #eaf1f6;
+      border-radius: 24px;
+      padding: 2rem 2.2rem;
+      text-align: center;
+      border: 1px solid #d6e2eb;
+      margin-top: 1.4rem;
+    }
+    .footer-note p {
+      color: #1d374b;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+    .footer-note .link-embed {
+      font-size: 1.05rem;
+    }
+    .footer-note a {
+      color: #0f3d58;
+      text-decoration: none;
+      font-weight: 510;
+      border-bottom: 1px solid #98b7cc;
+      transition: border-color 0.15s;
+    }
+    .footer-note a:hover {
+      border-bottom-color: #0f3d58;
+    }
+
+    /* 响应式 */
+    @media (max-width: 800px) {
+      .hero p { max-width: 100%; }
+      .feature-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 580px) {
+      .container { padding: 1.5rem 1rem; }
+      .hero { padding: 2rem 1.5rem; }
+      .hero h1 { font-size: 2rem; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .insight-area { flex-direction: column; gap: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- hero 首页横幅 -->
+  <div class="hero">
+    <div class="badge">简明指南 · 专题</div>
+    <h1>MK体育 · 访问脉络与日常提醒</h1>
+    <p>一份聚焦操作逻辑与使用场景的轻量介绍，面向希望快速理清路径的读者。</p>
+  </div>
+
+  <!-- 背景说明 -->
+  <div class="context-card">
+    <h2>从何处出发</h2>
+    <p>MK体育 所指向的服务环境，围绕赛事资讯、数据查询与社区互动展开。页面结构偏向工具化，而非资讯流。理解其信息层级有助于减少无效操作。</p>
+    <p>无论你之前是否接触过类似界面，本页的三段要点与常见问题摘要，可帮你勾勒出基本使用轮廓。所有建议均基于公开界面逻辑，不涉及内部策略或引导性结论。</p>
+  </div>
+
+  <!-- 三段自然介绍：特点与注意事项 -->
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="num">01</div>
+      <h3>界面一致性</h3>
+      <p>核心操作区采用固定导航与侧边辅助栏，减少认知负担。面板间跳转依赖明确的标签系统，便于快速定位常用功能。</p>
+    </div>
+    <div class="feature-card">
+      <div class="num">02</div>
+      <h3>信息密度控制</h3>
+      <p>列表页默认展示关键指标，详情页才展开完整参数。这种渐进式呈现让浏览节奏更可控，也降低初次使用的压迫感。</p>
+    </div>
+    <div class="feature-card">
+      <div class="num">03</div>
+      <h3>反馈与延迟</h3>
+      <p>部分操作需等待服务器响应，尤其在数据刷新时段。页面设有基础加载提示，建议在提交或切换前确认网络状态。</p>
+    </div>
+  </div>
+
+  <!-- 场景 + 提示 混合区（代替单独特点） -->
+  <div class="insight-area">
+    <div class="col">
+      <h3>常见使用场景</h3>
+      <ul>
+        <li>快速查阅近期赛程与变动</li>
+        <li>对比不同项目的实时参考数据</li>
+        <li>在社区板块浏览讨论线索</li>
+        <li>管理个人关注列表与提醒</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>访问提醒</h3>
+      <ul>
+        <li>建议使用主流浏览器并开启 JavaScript</li>
+        <li>部分区域需要登录，可提前注册</li>
+        <li>数据更新时间以页面标注为准</li>
+        <li>警惕仿冒域名，核对地址栏</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-mini">
+    <h2>常见疑问摘要</h2>
+    <details>
+      <summary>是否必须注册才能浏览主要板块？</summary>
+      <p>多数信息页面（赛程、基础数据）可直接查看，涉及个人收藏或评论的交互需完成注册。</p>
+    </details>
+    <details>
+      <summary>页面语言是否可以切换？</summary>
+      <p>目前界面以中文为主，部分术语保留英文缩写。未发现语言切换开关，建议使用浏览器翻译功能辅助。</p>
+    </details>
+    <details>
+      <summary>遇到加载失败或白屏如何处置？</summary>
+      <p>先检查本地网络，再尝试刷新或清除缓存。若问题持续，可参考官方支持渠道的说明。</p>
+    </details>
+  </div>
+
+  <!-- 页尾访问提示，自然嵌入链接 -->
+  <div class="footer-note">
+    <p>若需直接访问主站，可在浏览器地址栏输入域名，或通过收藏夹跳转至 <span class="link-embed"><a href="https://onlineapp-mksports.com">MK体育</a></span>。</p>
+    <p style="font-size: 0.88rem; color: #4a667d; margin-top: 0.4rem;">保持对网址的核对，是安全浏览的基本习惯。</p>
+  </div>
+
+</div>
+</body>
+</html>
